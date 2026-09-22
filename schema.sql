@@ -1,0 +1,20 @@
+create table if not exists festival_records (
+ id bigserial primary key,
+ festival text not null,
+ festival_zh text not null,
+ year int not null,
+ section text,
+ status text not null check (status in ('nominee','winner')),
+ film_zh text,
+ film_en text not null,
+ director_zh text,
+ director_en text,
+ award_zh text,
+ award_en text,
+ official_url text,
+ imdb_id text,
+ douban_url text,
+ trailer_url text,
+ technical jsonb default '{}'::jsonb,
+ checked_at timestamptz
+);

@@ -1,0 +1,12 @@
+import express from "express";
+import fs from "fs";
+import path from "path";
+import {fileURLToPath} from "url";
+const __dirname=path.dirname(fileURLToPath(import.meta.url));
+const app=express();
+const DATA=path.join(__dirname,"data","records.json");
+app.use(express.json());
+app.use(express.static(path.join(__dirname,"public")));
+app.get("/api/records",(req,res)=>res.json(JSON.parse(fs.readFileSync(DATA,"utf8"))));
+app.get("/api/health",(req,res)=>res.json({ok:true,records:JSON.parse(fs.readFileSync(DATA,"utf8")).length,updatedAt:new Date().toISOString()}));
+app.listen(process.env.PORT||3000,()=>console.log("Xiaohua Universe running"));

@@ -16,12 +16,12 @@ ROOT = Path(__file__).resolve().parents[1]
 HEADERS = {"User-Agent": "Mozilla/5.0 (Xiaohua Universe poster index)"}
 
 def lookup(row):
-    for query in (row.get("filmZh"), row.get("filmEn")):
+    for query in (row.get("filmEn"), row.get("filmZh")):
         if not query:
             continue
         try:
             url = "https://movie.douban.com/j/subject_suggest?q=" + quote(query)
-            with urlopen(Request(url, headers=HEADERS), timeout=20) as response:
+            with urlopen(Request(url, headers=HEADERS), timeout=5) as response:
                 items = json.loads(response.read().decode("utf-8"))
             movies = [x for x in items if x.get("type") == "movie" and x.get("img")]
             if not movies:
@@ -41,7 +41,7 @@ def main():
     path = ROOT / "data/records.json"
     rows = json.loads(path.read_text())
     found = 0
-    with ThreadPoolExecutor(max_workers=8) as pool:
+    with ThreadPoolExecutor(max_workers=32) as pool:
         futures = [pool.submit(lookup, row) for row in rows]
         for future in as_completed(futures):
             row, result = future.result()

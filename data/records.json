@@ -1627,10 +1627,15 @@
     "awardZh": "金棕榈",
     "awardEn": "Palme d'Or",
     "official": "https://www.festival-cannes.com/en/retrospective/2019/awards/",
-    "imdbId": "",
+    "imdbId": "tt6751668",
     "doubanUrl": "",
     "trailerUrl": "",
-    "technical": {},
+    "technical": {
+      "camera": "ARRI Alexa 65",
+      "aspect": "2.39:1",
+      "sound": "Dolby Atmos",
+      "source": "https://www.imdb.com/title/tt6751668/technical/"
+    },
     "checkedAt": "2026-09-22"
   },
   {
@@ -2140,10 +2145,15 @@
     "awardZh": "金棕榈（并列）",
     "awardEn": "Palme d'Or (Ex-aequo)",
     "official": "https://www.festival-cannes.com/en/retrospective/1993/awards/",
-    "imdbId": "",
+    "imdbId": "tt0106332",
     "doubanUrl": "",
     "trailerUrl": "",
-    "technical": {},
+    "technical": {
+      "camera": "35 mm film",
+      "aspect": "1.85:1",
+      "sound": "Dolby Stereo",
+      "source": "https://www.imdb.com/title/tt0106332/technical/"
+    },
     "checkedAt": "2026-09-22"
   },
   {
@@ -2162,7 +2172,12 @@
     "imdbId": "tt0107822",
     "doubanUrl": "",
     "trailerUrl": "",
-    "technical": {},
+    "technical": {
+      "camera": "35 mm film",
+      "aspect": "2.35:1",
+      "sound": "Dolby SR",
+      "source": "https://www.imdb.com/title/tt0107822/technical/"
+    },
     "checkedAt": "2026-09-22"
   },
   {

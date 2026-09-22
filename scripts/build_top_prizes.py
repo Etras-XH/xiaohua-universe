@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build a normalized four-festival top-prize history from archival tables.
 
-The checked-in JSON remains the runtime source.  This importer is retained so the
+The checked-in JSON remains the runtime source. This importer is retained so the
 historical batch can be audited and regenerated; each row points to the relevant
 festival's official archive as its primary provenance.
 """
@@ -17,7 +17,7 @@ import pandas as pd
 
 
 ROOT = Path(__file__).resolve().parents[1]
-TODAY = "2026-09-22"
+TODAY = "2026-09-23"
 
 CONFIG = {
     "Cannes": {
@@ -40,6 +40,21 @@ CONFIG = {
         "festivalZh": "洛迦诺", "awardZh": "金豹奖", "awardEn": "Pardo d'Oro / Golden Leopard",
         "official": "https://www.locarnofestival.ch/festival/program-archive.html",
     },
+}
+
+# Chinese and English archival tables occasionally list ex-aequo winners in a
+# different order. Pairing them by row position silently cross-wires films and
+# directors. These Berlin ties were checked against the Berlinale year archive
+# and are pinned here so regeneration cannot reintroduce those bad mappings.
+BERLIN_TIE_OVERRIDES = {
+    (1990, "Larks on a String"): ("Jiří Menzel",),
+    (1990, "Music Box"): ("Costa-Gavras",),
+    (1985, "The Woman and the Stranger"): ("Rainer Simon",),
+    (1985, "Wetherby"): ("David Hare",),
+    (1983, "Ascendancy"): ("Edward Bennett",),
+    (1983, "La colmena"): ("Mario Camus",),
+    (1963, "Bushido, Samurai Saga"): ("Tadashi Imai",),
+    (1963, "To Bed or Not to Bed"): ("Gian Luigi Polidoro",),
 }
 
 
@@ -92,11 +107,10 @@ def build() -> list[dict]:
             positions[year] += 1
             film_zh, director_zh = clean_zh(row.iloc[1]), clean_zh(row.iloc[3])
             film_en, director_en = en.get(year, [("", "")])[pos] if pos < len(en.get(year, [])) else ("", "")
-            # A few older archive tables do not expose an English display title.
-            # Retain the original-language title and the reviewed Chinese person
-            # name instead of emitting empty searchable fields.
             film_en = film_en or clean_zh(row.iloc[2])
             director_en = director_en or director_zh
+            if festival == "Berlin" and (year, film_en) in BERLIN_TIE_OVERRIDES:
+                director_en = BERLIN_TIE_OVERRIDES[(year, film_en)][0]
             if film_zh == "nan" or director_zh == "nan":
                 continue
             tie = len([r for r in zh.itertuples(index=False) if year_of(r[0]) == year and usable(r[1])]) > 1
@@ -114,7 +128,6 @@ def build() -> list[dict]:
 
 if __name__ == "__main__":
     old = json.loads((ROOT / "data/records.json").read_text())
-    # Preserve enriched fields already curated for any matching top-prize row.
     enriched = {(r["festival"], r["year"], r["filmEn"]): r for r in old if r["status"] == "winner"}
     rows = build()
     for row in rows:

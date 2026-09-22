@@ -16,7 +16,26 @@
     "doubanUrl": "",
     "trailerUrl": "",
     "technical": {},
-    "checkedAt": "2026-09-22"
+    "checkedAt": "2026-09-23"
+  },
+  {
+    "festival": "Berlin",
+    "festivalZh": "柏林",
+    "year": 1990,
+    "section": "Competition",
+    "status": "winner",
+    "filmZh": "八音盒",
+    "filmEn": "Music Box",
+    "directorZh": "科斯塔-加夫拉斯",
+    "directorEn": "Costa-Gavras",
+    "awardZh": "金熊奖",
+    "awardEn": "Golden Bear",
+    "official": "https://www.berlinale.de/en/2011/programm/20116881.html",
+    "imdbId": "",
+    "doubanUrl": "",
+    "trailerUrl": "",
+    "technical": {},
+    "checkedAt": "2026-09-23"
   },
   {
     "festival": "Berlin",
@@ -35,6 +54,6 @@
     "doubanUrl": "",
     "trailerUrl": "",
     "technical": {},
-    "checkedAt": "2026-09-22"
+    "checkedAt": "2026-09-23"
   }
 ]

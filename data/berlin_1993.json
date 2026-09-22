@@ -1,0 +1,40 @@
+[
+  {
+    "festival": "Berlin",
+    "festivalZh": "柏林",
+    "year": 1993,
+    "section": "Competition",
+    "status": "winner",
+    "filmZh": "喜宴",
+    "filmEn": "The Wedding Banquet",
+    "directorZh": "李安",
+    "directorEn": "Ang Lee",
+    "awardZh": "金熊奖",
+    "awardEn": "Golden Bear",
+    "official": "https://www.berlinale.de/en/archive/awards-juries/awards.html/y=1993/o=desc/p=1/rp=40",
+    "imdbId": "",
+    "doubanUrl": "",
+    "trailerUrl": "",
+    "technical": {},
+    "checkedAt": "2026-09-23"
+  },
+  {
+    "festival": "Berlin",
+    "festivalZh": "柏林",
+    "year": 1993,
+    "section": "Competition",
+    "status": "winner",
+    "filmZh": "香魂女",
+    "filmEn": "Women from the Lake of Scented Souls",
+    "directorZh": "谢飞",
+    "directorEn": "Xie Fei",
+    "awardZh": "金熊奖",
+    "awardEn": "Golden Bear",
+    "official": "https://www.berlinale.de/en/archive/awards-juries/awards.html/y=1993/o=desc/p=1/rp=40",
+    "imdbId": "",
+    "doubanUrl": "",
+    "trailerUrl": "",
+    "technical": {},
+    "checkedAt": "2026-09-23"
+  }
+]

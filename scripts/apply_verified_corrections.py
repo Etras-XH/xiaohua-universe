@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Apply small, explicitly verified corrections to checked-in festival records.
 
-Keep this file conservative: every correction must be supported by an official
-festival archive. It updates both runtime copies and never creates new rows.
+Every correction/addition must be supported by an official festival archive.
+Both runtime copies are updated together and duplicate award rows are avoided.
 """
 from __future__ import annotations
 
@@ -12,13 +12,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 CHECKED_AT = "2026-09-23"
 
-# Official Berlinale archive / chronicle confirms 1975 Golden Bear:
-# Örökbefogadás (Adoption), directed by Márta Mészáros.
-# https://www.berlinale.de/de/archiv/chroniken/1975.html
-# Official Berlinale 2002 awards PDF:
-# https://www.berlinale.de/media/download/preise-jurys/52_ifb_preise_2002.pdf
-# Official Cannes archive confirms the joint 1993 Palme d'Or winners:
-# https://www.festival-cannes.com/en/2026/ba-wang-bie-ji-farewell-my-concubine-by-chen-kaige-when-peking-opera-was-still-alive/
 CORRECTIONS = {
     ("Berlin", 2002, "千与千寻"): {
         "filmEn": "Spirited Away", "directorEn": "Hayao Miyazaki",
@@ -31,24 +24,17 @@ CORRECTIONS = {
     ("Cannes", 1993, "钢琴课"): {
         "filmEn": "The Piano", "directorEn": "Jane Campion",
         "directorZh": "简·坎皮恩", "imdbId": "tt0107822",
-        "technical": {
-            "camera": "35 mm film", "aspect": "2.35:1", "sound": "Dolby SR",
-            "source": "https://www.imdb.com/title/tt0107822/technical/",
-        },
+        "technical": {"camera": "35 mm film", "aspect": "2.35:1", "sound": "Dolby SR",
+                      "source": "https://www.imdb.com/title/tt0107822/technical/"},
     },
     ("Cannes", 1993, "霸王别姬"): {
         "filmEn": "Farewell My Concubine", "directorEn": "Chen Kaige",
         "directorZh": "陈凯歌", "imdbId": "tt0106332",
-        "technical": {
-            "camera": "35 mm film", "aspect": "1.85:1", "sound": "Dolby Stereo",
-            "source": "https://www.imdb.com/title/tt0106332/technical/",
-        },
+        "technical": {"camera": "35 mm film", "aspect": "1.85:1", "sound": "Dolby Stereo",
+                      "source": "https://www.imdb.com/title/tt0106332/technical/"},
     },
 }
 
-# Award-level corrections are used where an older imported row may have an
-# inconsistent Chinese title. This avoids creating a duplicate while fixing
-# the authoritative film/director pairing.
 AWARD_CORRECTIONS = {
     ("Berlin", 1975, "Golden Bear"): {
         "filmZh": "领养", "filmEn": "Adoption",
@@ -56,6 +42,51 @@ AWARD_CORRECTIONS = {
         "official": "https://www.berlinale.de/de/archiv/chroniken/1975.html",
     },
 }
+
+# Official Berlinale 2011 chronicle explicitly names these International Jury awards.
+# https://www.berlinale.de/de/archiv/chroniken/2011.html
+ADDITIONS = [
+    {
+        "festival": "Berlin", "festivalZh": "柏林", "year": 2011,
+        "section": "Competition", "status": "winner",
+        "filmZh": "都灵之马", "filmEn": "The Turin Horse",
+        "directorZh": "贝拉·塔尔", "directorEn": "Béla Tarr",
+        "awardZh": "评审团大奖银熊奖", "awardEn": "Silver Bear Grand Jury Prize",
+        "official": "https://www.berlinale.de/de/archiv/chroniken/2011.html",
+        "imdbId": "", "doubanUrl": "", "trailerUrl": "", "technical": {},
+        "checkedAt": CHECKED_AT,
+    },
+    {
+        "festival": "Berlin", "festivalZh": "柏林", "year": 2011,
+        "section": "Competition", "status": "winner",
+        "filmZh": "沉睡的疾病", "filmEn": "Sleeping Sickness",
+        "directorZh": "乌利胥·柯雷", "directorEn": "Ulrich Köhler",
+        "awardZh": "最佳导演银熊奖", "awardEn": "Silver Bear for Best Director",
+        "official": "https://www.berlinale.de/de/archiv/chroniken/2011.html",
+        "imdbId": "", "doubanUrl": "", "trailerUrl": "", "technical": {},
+        "checkedAt": CHECKED_AT,
+    },
+    {
+        "festival": "Berlin", "festivalZh": "柏林", "year": 2011,
+        "section": "Competition", "status": "winner",
+        "filmZh": "血之救赎", "filmEn": "The Forgiveness of Blood",
+        "directorZh": "乔舒亚·马斯顿", "directorEn": "Joshua Marston",
+        "awardZh": "最佳编剧银熊奖", "awardEn": "Silver Bear for Best Screenplay",
+        "official": "https://www.berlinale.de/de/archiv/chroniken/2011.html",
+        "imdbId": "", "doubanUrl": "", "trailerUrl": "", "technical": {},
+        "checkedAt": CHECKED_AT,
+    },
+    {
+        "festival": "Berlin", "festivalZh": "柏林", "year": 2011,
+        "section": "Competition", "status": "winner",
+        "filmZh": "奖品", "filmEn": "The Prize",
+        "directorZh": "宝拉·马可维奇", "directorEn": "Paula Markovitch",
+        "awardZh": "杰出艺术贡献银熊奖", "awardEn": "Silver Bear for Outstanding Artistic Achievement",
+        "official": "https://www.berlinale.de/de/archiv/chroniken/2011.html",
+        "imdbId": "", "doubanUrl": "", "trailerUrl": "", "technical": {},
+        "checkedAt": CHECKED_AT,
+    },
+]
 
 
 def apply(path: Path) -> int:
@@ -78,14 +109,22 @@ def apply(path: Path) -> int:
         before = json.dumps(row, ensure_ascii=False, sort_keys=True)
         row.update(patch)
         row["checkedAt"] = CHECKED_AT
-        after = json.dumps(row, ensure_ascii=False, sort_keys=True)
-        changed += before != after
+        changed += before != json.dumps(row, ensure_ascii=False, sort_keys=True)
+
     missing = set(CORRECTIONS) - seen
     missing_awards = set(AWARD_CORRECTIONS) - award_seen
     if missing or missing_awards:
-        raise RuntimeError(
-            f"expected records not found: exact={sorted(missing)}, awards={sorted(missing_awards)}"
-        )
+        raise RuntimeError(f"expected records not found: exact={sorted(missing)}, awards={sorted(missing_awards)}")
+
+    existing = {(r.get("festival"), r.get("year"), r.get("filmEn"), r.get("awardEn")) for r in rows}
+    for addition in ADDITIONS:
+        key = (addition["festival"], addition["year"], addition["filmEn"], addition["awardEn"])
+        if key not in existing:
+            rows.append(addition.copy())
+            existing.add(key)
+            changed += 1
+
+    rows.sort(key=lambda r: (-int(r.get("year", 0)), r.get("festival", ""), r.get("filmEn", ""), r.get("awardEn", "")))
     path.write_text(json.dumps(rows, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return changed
 
@@ -93,4 +132,4 @@ def apply(path: Path) -> int:
 if __name__ == "__main__":
     a = apply(ROOT / "data/records.json")
     b = apply(ROOT / "public/data/records.json")
-    print(f"corrected {a} + {b} records")
+    print(f"corrected/added {a} + {b} records")

@@ -8,6 +8,7 @@ CHECKED_AT = "2026-09-24"
 SOURCES = {
     2025: "https://www.berlinale.de/media/en/download/awards-juries/berlinale-preise-2025.pdf",
     2024: "https://www.berlinale.de/media/en/download/awards-juries/berlinale-preise-2024.pdf",
+    2023: "https://www.berlinale.de/media/en/download/awards-juries/berlinale-awards-2023.pdf",
 }
 # Award/film/director data below is from official Berlinale awards PDFs.
 # Chinese mappings are conservative; uncertain title/person-name mappings are left blank.
@@ -26,6 +27,13 @@ ADDITIONS = [
     (2024, "", "Small Things Like These", "", "Tim Mielants", "最佳配角银熊奖（Emily Watson）", "Silver Bear for Best Supporting Performance"),
     (2024, "", "Dying", "", "Matthias Glasner", "最佳编剧银熊奖（Matthias Glasner）", "Silver Bear for Best Screenplay"),
     (2024, "", "The Devil's Bath", "", "Veronika Franz & Severin Fiala", "杰出艺术贡献银熊奖（摄影：Martin Gschlacht）", "Silver Bear for Outstanding Artistic Contribution"),
+    (2023, "烈火青春", "Afire", "克里斯蒂安·佩措尔德", "Christian Petzold", "评审团大奖银熊奖", "Silver Bear Grand Jury Prize"),
+    (2023, "", "Bad Living", "", "João Canijo", "评审团奖银熊奖", "Silver Bear Jury Prize"),
+    (2023, "", "The Plough", "菲利普·加瑞尔", "Philippe Garrel", "最佳导演银熊奖", "Silver Bear for Best Director"),
+    (2023, "两万种蜜蜂", "20,000 Species of Bees", "", "Estibaliz Urresola Solaguren", "最佳主角银熊奖（Sofía Otero）", "Silver Bear for Best Leading Performance"),
+    (2023, "", "Till the End of the Night", "", "Christoph Hochhäusler", "最佳配角银熊奖（Thea Ehre）", "Silver Bear for Best Supporting Performance"),
+    (2023, "音乐", "Music", "安格拉·夏娜莱克", "Angela Schanelec", "最佳编剧银熊奖（Angela Schanelec）", "Silver Bear for Best Screenplay"),
+    (2023, "迪斯科男孩", "Disco Boy", "", "Giacomo Abbruzzese", "杰出艺术贡献银熊奖（摄影：Hélène Louvart）", "Silver Bear for Outstanding Artistic Contribution"),
 ]
 
 def apply(path):

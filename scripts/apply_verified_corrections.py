@@ -12,6 +12,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 CHECKED_AT = "2026-09-23"
 
+# Official Berlinale archive / chronicle confirms 1975 Golden Bear:
+# Örökbefogadás (Adoption), directed by Márta Mészáros.
+# https://www.berlinale.de/de/archiv/chroniken/1975.html
 # Official Berlinale 2002 awards PDF:
 # https://www.berlinale.de/media/download/preise-jurys/52_ifb_preise_2002.pdf
 # Official Cannes archive confirms the joint 1993 Palme d'Or winners:
@@ -43,25 +46,46 @@ CORRECTIONS = {
     },
 }
 
+# Award-level corrections are used where an older imported row may have an
+# inconsistent Chinese title. This avoids creating a duplicate while fixing
+# the authoritative film/director pairing.
+AWARD_CORRECTIONS = {
+    ("Berlin", 1975, "Golden Bear"): {
+        "filmZh": "领养", "filmEn": "Adoption",
+        "directorZh": "梅萨罗什·玛尔塔", "directorEn": "Márta Mészáros",
+        "official": "https://www.berlinale.de/de/archiv/chroniken/1975.html",
+    },
+}
+
 
 def apply(path: Path) -> int:
     rows = json.loads(path.read_text(encoding="utf-8"))
     changed = 0
     seen = set()
+    award_seen = set()
     for row in rows:
         key = (row.get("festival"), row.get("year"), row.get("filmZh"))
         patch = CORRECTIONS.get(key)
+        if patch:
+            seen.add(key)
+        else:
+            award_key = (row.get("festival"), row.get("year"), row.get("awardEn"))
+            patch = AWARD_CORRECTIONS.get(award_key)
+            if patch:
+                award_seen.add(award_key)
         if not patch:
             continue
-        seen.add(key)
         before = json.dumps(row, ensure_ascii=False, sort_keys=True)
         row.update(patch)
         row["checkedAt"] = CHECKED_AT
         after = json.dumps(row, ensure_ascii=False, sort_keys=True)
         changed += before != after
     missing = set(CORRECTIONS) - seen
-    if missing:
-        raise RuntimeError(f"expected records not found: {sorted(missing)}")
+    missing_awards = set(AWARD_CORRECTIONS) - award_seen
+    if missing or missing_awards:
+        raise RuntimeError(
+            f"expected records not found: exact={sorted(missing)}, awards={sorted(missing_awards)}"
+        )
     path.write_text(json.dumps(rows, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return changed
 

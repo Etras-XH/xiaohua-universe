@@ -43,8 +43,7 @@ AWARD_CORRECTIONS = {
     },
 }
 
-# Official Berlinale 2011 chronicle explicitly names these International Jury awards.
-# https://www.berlinale.de/de/archiv/chroniken/2011.html
+# Additions below are transcribed from official Berlinale archive award pages.
 ADDITIONS = [
     {
         "festival": "Berlin", "festivalZh": "柏林", "year": 2011,
@@ -53,8 +52,7 @@ ADDITIONS = [
         "directorZh": "贝拉·塔尔", "directorEn": "Béla Tarr",
         "awardZh": "评审团大奖银熊奖", "awardEn": "Silver Bear Grand Jury Prize",
         "official": "https://www.berlinale.de/de/archiv/chroniken/2011.html",
-        "imdbId": "", "doubanUrl": "", "trailerUrl": "", "technical": {},
-        "checkedAt": CHECKED_AT,
+        "imdbId": "", "doubanUrl": "", "trailerUrl": "", "technical": {}, "checkedAt": CHECKED_AT,
     },
     {
         "festival": "Berlin", "festivalZh": "柏林", "year": 2011,
@@ -63,8 +61,7 @@ ADDITIONS = [
         "directorZh": "乌利胥·柯雷", "directorEn": "Ulrich Köhler",
         "awardZh": "最佳导演银熊奖", "awardEn": "Silver Bear for Best Director",
         "official": "https://www.berlinale.de/de/archiv/chroniken/2011.html",
-        "imdbId": "", "doubanUrl": "", "trailerUrl": "", "technical": {},
-        "checkedAt": CHECKED_AT,
+        "imdbId": "", "doubanUrl": "", "trailerUrl": "", "technical": {}, "checkedAt": CHECKED_AT,
     },
     {
         "festival": "Berlin", "festivalZh": "柏林", "year": 2011,
@@ -73,8 +70,7 @@ ADDITIONS = [
         "directorZh": "乔舒亚·马斯顿", "directorEn": "Joshua Marston",
         "awardZh": "最佳编剧银熊奖", "awardEn": "Silver Bear for Best Screenplay",
         "official": "https://www.berlinale.de/de/archiv/chroniken/2011.html",
-        "imdbId": "", "doubanUrl": "", "trailerUrl": "", "technical": {},
-        "checkedAt": CHECKED_AT,
+        "imdbId": "", "doubanUrl": "", "trailerUrl": "", "technical": {}, "checkedAt": CHECKED_AT,
     },
     {
         "festival": "Berlin", "festivalZh": "柏林", "year": 2011,
@@ -83,8 +79,43 @@ ADDITIONS = [
         "directorZh": "宝拉·马可维奇", "directorEn": "Paula Markovitch",
         "awardZh": "杰出艺术贡献银熊奖", "awardEn": "Silver Bear for Outstanding Artistic Achievement",
         "official": "https://www.berlinale.de/de/archiv/chroniken/2011.html",
-        "imdbId": "", "doubanUrl": "", "trailerUrl": "", "technical": {},
-        "checkedAt": CHECKED_AT,
+        "imdbId": "", "doubanUrl": "", "trailerUrl": "", "technical": {}, "checkedAt": CHECKED_AT,
+    },
+    {
+        "festival": "Berlin", "festivalZh": "柏林", "year": 1986,
+        "section": "Competition", "status": "winner",
+        "filmZh": "弥撒终了", "filmEn": "La messa e finita",
+        "directorZh": "南尼·莫莱蒂", "directorEn": "Nanni Moretti",
+        "awardZh": "评审团特别奖银熊奖", "awardEn": "Silver Bear - Special Jury Prize",
+        "official": "https://www.berlinale.de/en/archive/awards-juries/awards.html/y=1986/o=desc/p=1/rp=40",
+        "imdbId": "", "doubanUrl": "", "trailerUrl": "", "technical": {}, "checkedAt": CHECKED_AT,
+    },
+    {
+        "festival": "Berlin", "festivalZh": "柏林", "year": 1986,
+        "section": "Competition", "status": "winner",
+        "filmZh": "年轻作曲家的旅程", "filmEn": "Achalgazrda kompozitoris mogzauroba",
+        "directorZh": "格奥尔基·申格拉亚", "directorEn": "Georgi Schengelaja",
+        "awardZh": "最佳导演银熊奖", "awardEn": "Silver Bear for Best Director",
+        "official": "https://www.berlinale.de/en/archive/awards-juries/awards.html/y=1986/o=desc/p=1/rp=40",
+        "imdbId": "", "doubanUrl": "", "trailerUrl": "", "technical": {}, "checkedAt": CHECKED_AT,
+    },
+    {
+        "festival": "Berlin", "festivalZh": "柏林", "year": 1986,
+        "section": "Competition", "status": "winner",
+        "filmZh": "卡拉瓦乔", "filmEn": "Caravaggio",
+        "directorZh": "德里克·贾曼", "directorEn": "Derek Jarman",
+        "awardZh": "杰出个人成就银熊奖", "awardEn": "Silver Bear for an outstanding single achievement",
+        "official": "https://www.berlinale.de/en/archive/awards-juries/awards.html/y=1986/o=desc/p=1/rp=40",
+        "imdbId": "", "doubanUrl": "", "trailerUrl": "", "technical": {}, "checkedAt": CHECKED_AT,
+    },
+    {
+        "festival": "Berlin", "festivalZh": "柏林", "year": 1986,
+        "section": "Competition", "status": "winner",
+        "filmZh": "枪之权三", "filmEn": "Yari no Gonza",
+        "directorZh": "筱田正浩", "directorEn": "Masahiro Shinoda",
+        "awardZh": "杰出艺术贡献银熊奖", "awardEn": "Silver Bear for an outstanding artistic contribution",
+        "official": "https://www.berlinale.de/en/archive/awards-juries/awards.html/y=1986/o=desc/p=1/rp=40",
+        "imdbId": "", "doubanUrl": "", "trailerUrl": "", "technical": {}, "checkedAt": CHECKED_AT,
     },
 ]
 

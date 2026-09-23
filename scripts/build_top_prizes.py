@@ -53,6 +53,10 @@ BERLIN_TIE_OVERRIDES = {
     (1985, "Wetherby"): ("David Hare",),
     (1983, "Ascendancy"): ("Edward Bennett",),
     (1983, "La colmena"): ("Mario Camus",),
+    # Berlinale's official 1978 award archive lists three Golden Bears.
+    (1978, "Las palabras de Max"): ("Emilio Martínez Lázaro",),
+    (1978, "Las Truchas"): ("José Luis García Sánchez",),
+    (1978, "Ascensor"): ("Tomás Muñoz",),
     (1963, "Bushido, Samurai Saga"): ("Tadashi Imai",),
     (1963, "To Bed or Not to Bed"): ("Gian Luigi Polidoro",),
 }

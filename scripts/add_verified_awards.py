@@ -5,18 +5,18 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CHECKED_AT = "2026-09-23"
-OFFICIAL = "https://www.berlinale.de/en/archive/awards-juries/awards.html/y=1951,2022/o=desc/p=4/rp=40"
-# Award/film/director data below is from the official Berlinale archive, International Jury 2019.
+OFFICIAL = "https://www.berlinale.de/media/en/download/awards-juries/berlinale-awards-2020.pdf"
+# Award/film/director data below is from the official Berlinale 2020 awards document.
 # Chinese mappings are conservative and only included where the established title is clear.
 ADDITIONS = [
-    ("同义词", "Synonymes", "那达夫·拉皮德", "Nadav Lapid", "金熊奖", "Golden Bear for Best Film"),
-    ("感谢上帝", "Grâce à Dieu", "弗朗索瓦·欧容", "François Ozon", "评审团大奖银熊奖", "Silver Bear Grand Jury Prize"),
-    ("系统破坏者", "Systemsprenger", "诺拉·芬沙伊德", "Nora Fingscheidt", "阿尔弗雷德·鲍尔银熊奖", "Silver Bear Alfred Bauer Prize"),
-    ("我当时在家，可是……", "Ich war zuhause, aber", "安格拉·夏娜莱克", "Angela Schanelec", "最佳导演银熊奖", "Silver Bear for Best Director"),
-    ("地久天长", "Di jiu tian chang", "王小帅", "Wang Xiaoshuai", "最佳女演员银熊奖（咏梅）", "Silver Bear for Best Actress"),
-    ("地久天长", "Di jiu tian chang", "王小帅", "Wang Xiaoshuai", "最佳男演员银熊奖（王景春）", "Silver Bear for Best Actor"),
-    ("少年黑手党", "La paranza dei bambini", "克劳迪欧·吉瓦内斯", "Claudio Giovannesi", "最佳编剧银熊奖（Maurizio Braucci、Claudio Giovannesi、Roberto Saviano）", "Silver Bear for Best Screenplay"),
-    ("外出偷马", "Ut og stjæle hester", "汉斯·皮特·莫朗", "Hans Petter Moland", "杰出艺术贡献银熊奖（摄影：Rasmus Videbæk）", "Silver Bear for Outstanding Artistic Contribution"),
+    ("无邪", "Sheytan vojud nadarad", "穆罕默德·拉索罗夫", "Mohammad Rasoulof", "金熊奖", "Golden Bear for Best Film"),
+    ("从不，很少，有时，总是", "Never Rarely Sometimes Always", "伊丽莎·希特曼", "Eliza Hittman", "评审团大奖银熊奖", "Silver Bear Grand Jury Prize"),
+    ("逃走的女人", "Domangchin yeoja", "洪常秀", "Hong Sangsoo", "最佳导演银熊奖", "Silver Bear for Best Director"),
+    ("温蒂妮", "Undine", "克里斯蒂安·佩措尔德", "Christian Petzold", "最佳女演员银熊奖（Paula Beer）", "Silver Bear for Best Actress"),
+    ("我想藏起来", "Volevo nascondermi", "乔治奥·迪里蒂", "Giorgio Diritti", "最佳男演员银熊奖（Elio Germano）", "Silver Bear for Best Actor"),
+    ("烂故事", "Favolacce", "达米亚诺·迪诺森佐 / 法比欧·迪诺森佐", "Damiano D'Innocenzo / Fabio D'Innocenzo", "最佳编剧银熊奖（D'Innocenzo Brothers）", "Silver Bear for Best Screenplay"),
+    ("DAU.娜塔莎", "DAU. Natasha", "伊利亚·赫尔扎诺夫斯基 / 叶卡捷琳娜·奥特尔", "Ilya Khrzhanovskiy / Jekaterina Oertel", "杰出艺术贡献银熊奖（摄影：Jürgen Jürges）", "Silver Bear for Outstanding Artistic Contribution"),
+    ("删除历史", "Effacer l’historique", "伯努瓦·德雷平 / 古斯塔弗·科文", "Benoît Delépine / Gustave Kervern", "第70届柏林电影节银熊奖", "Silver Bear - 70th Berlinale"),
 ]
 
 def apply(path):
@@ -24,10 +24,10 @@ def apply(path):
     existing = {(r.get("festival"), r.get("year"), r.get("filmEn"), r.get("awardEn")) for r in rows}
     added = 0
     for film_zh, film_en, director_zh, director_en, award_zh, award_en in ADDITIONS:
-        key = ("Berlin", 2019, film_en, award_en)
+        key = ("Berlin", 2020, film_en, award_en)
         if key in existing:
             continue
-        rows.append({"festival":"Berlin","festivalZh":"柏林","year":2019,"section":"Competition","status":"winner","filmZh":film_zh,"filmEn":film_en,"directorZh":director_zh,"directorEn":director_en,"awardZh":award_zh,"awardEn":award_en,"official":OFFICIAL,"imdbId":"","doubanUrl":"","trailerUrl":"","technical":{},"checkedAt":CHECKED_AT})
+        rows.append({"festival":"Berlin","festivalZh":"柏林","year":2020,"section":"Competition","status":"winner","filmZh":film_zh,"filmEn":film_en,"directorZh":director_zh,"directorEn":director_en,"awardZh":award_zh,"awardEn":award_en,"official":OFFICIAL,"imdbId":"","doubanUrl":"","trailerUrl":"","technical":{},"checkedAt":CHECKED_AT})
         existing.add(key); added += 1
     rows.sort(key=lambda r: (-int(r.get("year", 0)), r.get("festival", ""), r.get("filmEn", ""), r.get("awardEn", "")))
     path.write_text(json.dumps(rows, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

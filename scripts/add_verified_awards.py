@@ -1,21 +1,21 @@
 #!/usr/bin/env python3
-"""Append Berlinale 2017 Competition awards verified against the official Berlinale awards PDF."""
+"""Append Berlinale 2016 Competition awards verified against the official Berlinale awards PDF."""
 import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CHECKED_AT = "2026-09-24"
-SOURCE = "https://www.berlinale.de/media/download/preise-jurys/67_berlinale_awards.pdf"
+SOURCE = "https://www.berlinale.de/media/download/preise-jurys/66_berlinale_awards.pdf"
 # Chinese mappings are conservative; uncertain mappings are left blank.
 ADDITIONS = [
-    ("肉与灵", "On Body and Soul", "伊尔蒂科·茵叶蒂", "Ildikó Enyedi", "金熊奖", "Golden Bear"),
-    ("菲丽希缇", "Félicité", "阿兰·戈米斯", "Alain Gomis", "评审团大奖银熊奖", "Silver Bear Grand Jury Prize"),
-    ("糜骨之壤", "Spoor", "阿格涅丝卡·霍兰", "Agnieszka Holland", "阿尔弗雷德·鲍尔银熊奖", "Silver Bear Alfred Bauer Prize"),
-    ("希望的另一面", "The Other Side of Hope", "阿基·考里斯马基", "Aki Kaurismäki", "最佳导演银熊奖", "Silver Bear for Best Director"),
-    ("独自在夜晚的海边", "On the Beach at Night Alone", "洪常秀", "Hong Sangsoo", "最佳女演员银熊奖（金敏喜）", "Silver Bear for Best Actress"),
-    ("明亮的夜", "Bright Nights", "托马斯·阿斯兰", "Thomas Arslan", "最佳男演员银熊奖（Georg Friedrich）", "Silver Bear for Best Actor"),
-    ("普通女人", "A Fantastic Woman", "塞巴斯蒂安·莱里奥", "Sebastián Lelio", "最佳编剧银熊奖（Sebastián Lelio、Gonzalo Maza）", "Silver Bear for Best Screenplay"),
-    ("安娜，我的爱", "Ana, mon amour", "卡林·皮特·内策尔", "Călin Peter Netzer", "杰出艺术贡献银熊奖（剪辑：Dana Bunescu）", "Silver Bear for Outstanding Artistic Contribution"),
+    ("海上火焰", "Fire at Sea", "吉安弗兰科·罗西", "Gianfranco Rosi", "金熊奖", "Golden Bear"),
+    ("萨拉热窝之死", "Death in Sarajevo", "丹尼斯·塔诺维奇", "Danis Tanović", "评审团大奖银熊奖", "Silver Bear Grand Jury Prize"),
+    ("悲伤秘密的摇篮曲", "A Lullaby to the Sorrowful Mystery", "拉夫·迪亚兹", "Lav Diaz", "阿尔弗雷德·鲍尔银熊奖", "Silver Bear Alfred Bauer Prize"),
+    ("将来的事", "Things to Come", "米娅·汉森-洛夫", "Mia Hansen-Løve", "最佳导演银熊奖", "Silver Bear for Best Director"),
+    ("公社", "The Commune", "托马斯·温特伯格", "Thomas Vinterberg", "最佳女演员银熊奖（Trine Dyrholm）", "Silver Bear for Best Actress"),
+    ("赫迪", "Hedi", "穆罕默德·本·阿提亚", "Mohamed Ben Attia", "最佳男演员银熊奖（Majd Mastoura）", "Silver Bear for Best Actor"),
+    ("爱情合众国", "United States of Love", "托马斯·瓦希勒夫斯基", "Tomasz Wasilewski", "最佳编剧银熊奖（Tomasz Wasilewski）", "Silver Bear for Best Script"),
+    ("长江图", "Crosscurrent", "杨超", "Yang Chao", "杰出艺术贡献银熊奖（摄影：李屏宾）", "Silver Bear for Outstanding Artistic Contribution"),
 ]
 
 def apply(path):
@@ -23,10 +23,10 @@ def apply(path):
     existing = {(r.get("festival"), r.get("year"), r.get("filmEn"), r.get("awardEn")) for r in rows}
     added = 0
     for film_zh, film_en, director_zh, director_en, award_zh, award_en in ADDITIONS:
-        key = ("Berlin", 2017, film_en, award_en)
+        key = ("Berlin", 2016, film_en, award_en)
         if key in existing:
             continue
-        rows.append({"festival":"Berlin","festivalZh":"柏林","year":2017,"section":"Competition","status":"winner","filmZh":film_zh,"filmEn":film_en,"directorZh":director_zh,"directorEn":director_en,"awardZh":award_zh,"awardEn":award_en,"official":SOURCE,"imdbId":"","doubanUrl":"","trailerUrl":"","technical":{},"checkedAt":CHECKED_AT})
+        rows.append({"festival":"Berlin","festivalZh":"柏林","year":2016,"section":"Competition","status":"winner","filmZh":film_zh,"filmEn":film_en,"directorZh":director_zh,"directorEn":director_en,"awardZh":award_zh,"awardEn":award_en,"official":SOURCE,"imdbId":"","doubanUrl":"","trailerUrl":"","technical":{},"checkedAt":CHECKED_AT})
         existing.add(key)
         added += 1
     rows.sort(key=lambda r: (-int(r.get("year", 0)), r.get("festival", ""), r.get("filmEn", ""), r.get("awardEn", "")))
@@ -36,4 +36,4 @@ def apply(path):
 if __name__ == "__main__":
     a = apply(ROOT / "data/records.json")
     b = apply(ROOT / "public/data/records.json")
-    print(f"added {a} + {b} verified Berlinale 2017 award rows")
+    print(f"added {a} + {b} verified Berlinale 2016 award rows")

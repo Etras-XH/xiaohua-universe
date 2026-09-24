@@ -2437,6 +2437,25 @@
     "checkedAt": "2026-09-23"
   },
   {
+    "festival": "Berlin",
+    "festivalZh": "柏林",
+    "year": 2015,
+    "section": "Competition",
+    "status": "winner",
+    "filmZh": "维多利亚",
+    "filmEn": "Victoria",
+    "directorZh": "塞巴斯蒂安·施普尔",
+    "directorEn": "Sebastian Schipper",
+    "awardZh": "杰出艺术贡献银熊奖（摄影：Sturla Brandth Grøvlen）",
+    "awardEn": "Silver Bear for Outstanding Artistic Contribution",
+    "official": "https://www.berlinale.de/media/download/preise-jurys/65_berlinale_awards.pdf",
+    "imdbId": "",
+    "doubanUrl": "",
+    "trailerUrl": "",
+    "technical": {},
+    "checkedAt": "2026-09-24"
+  },
+  {
     "festival": "Cannes",
     "festivalZh": "戛纳",
     "year": 2015,

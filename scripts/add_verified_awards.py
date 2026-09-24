@@ -28,6 +28,16 @@ BATCHES = [
         ("珍珠纽扣", "The Pearl Button", "帕特里西奥·古斯曼", "Patricio Guzmán", "最佳编剧银熊奖（Patricio Guzmán）", "Silver Bear for Best Script"),
         ("维多利亚", "Victoria", "塞巴斯蒂安·施普尔", "Sebastian Schipper", "杰出艺术贡献银熊奖（摄影：Sturla Brandth Grøvlen）", "Silver Bear for Outstanding Artistic Contribution"),
     ]),
+    (2014, "https://www.berlinale.de/media/download/preise-jurys/64_berlinale_awards.pdf", [
+        ("白日焰火", "Black Coal, Thin Ice", "刁亦男", "Diao Yinan", "金熊奖", "Golden Bear"),
+        ("布达佩斯大饭店", "The Grand Budapest Hotel", "韦斯·安德森", "Wes Anderson", "评审团大奖银熊奖", "Silver Bear Grand Jury Prize"),
+        ("纵情一曲", "Life of Riley", "阿伦·雷乃", "Alain Resnais", "阿尔弗雷德·鲍尔银熊奖", "Silver Bear Alfred Bauer Prize"),
+        ("少年时代", "Boyhood", "理查德·林克莱特", "Richard Linklater", "最佳导演银熊奖", "Silver Bear for Best Director"),
+        ("小小的家", "The Little House", "山田洋次", "Yoji Yamada", "最佳女演员银熊奖（黑木华）", "Silver Bear for Best Actress"),
+        ("白日焰火", "Black Coal, Thin Ice", "刁亦男", "Diao Yinan", "最佳男演员银熊奖（廖凡）", "Silver Bear for Best Actor"),
+        ("苦路十四站", "Stations of the Cross", "迪特里希·布鲁格曼", "Dietrich Brüggemann", "最佳编剧银熊奖（Dietrich Brüggemann、Anna Brüggemann）", "Silver Bear for Best Script"),
+        ("推拿", "Blind Massage", "娄烨", "Lou Ye", "杰出艺术贡献银熊奖（摄影：曾剑）", "Silver Bear for Outstanding Artistic Contribution"),
+    ]),
 ]
 
 def apply(path):

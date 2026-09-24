@@ -10,6 +10,7 @@ SOURCES = {
     2024: "https://www.berlinale.de/media/en/download/awards-juries/berlinale-preise-2024.pdf",
     2023: "https://www.berlinale.de/media/en/download/awards-juries/berlinale-awards-2023.pdf",
     2022: "https://www.berlinale.de/en/archive/awards-juries/awards.html/a=silver-bears--all-feature-length-film/y=2021,2022/o=desc/p=1/rp=40",
+    2021: "https://b2b.berlinale.de/en/partner/postings/1307-the-award-winners-of-the-competition",
 }
 # Award/film/director data below is from official Berlinale awards archives/PDFs.
 # Chinese mappings are conservative; uncertain title/person-name mappings are left blank.
@@ -42,6 +43,14 @@ ADDITIONS = [
     (2022, "娜娜", "Nana", "卡米拉·安迪妮", "Kamila Andini", "最佳配角银熊奖（Laura Basuki）", "Silver Bear for Best Supporting Performance"),
     (2022, "库尔纳兹诉小布什", "Rabiye Kurnaz gegen George W. Bush", "安德里亚斯·德里森", "Andreas Dresen", "最佳编剧银熊奖（Laila Stieler）", "Silver Bear for Best Screenplay"),
     (2022, "一切都会好起来", "Everything Will Be Ok", "潘礼德", "Rithy Panh", "杰出艺术贡献银熊奖（Rithy Panh、Sarit Mang）", "Silver Bear for Outstanding Artistic Contribution"),
+    (2021, "倒霉性爱，发狂黄片", "Bad Luck Banging or Loony Porn", "拉杜·裘德", "Radu Jude", "金熊奖", "Golden Bear for Best Film"),
+    (2021, "偶然与想象", "Wheel of Fortune and Fantasy", "滨口龙介", "Ryusuke Hamaguchi", "评审团大奖银熊奖", "Silver Bear Grand Jury Prize"),
+    (2021, "巴赫曼先生和他的学生", "Mr Bachmann and His Class", "玛利亚·施佩特", "Maria Speth", "评审团奖银熊奖", "Silver Bear Jury Prize"),
+    (2021, "自然光线", "Natural Light", "德内斯·纳吉", "Dénes Nagy", "最佳导演银熊奖", "Silver Bear for Best Director"),
+    (2021, "我是你的人", "I'm Your Man", "玛丽亚·施拉德", "Maria Schrader", "最佳主角银熊奖（Maren Eggert）", "Silver Bear for Best Leading Performance"),
+    (2021, "森林随处可见", "Forest - I See You Everywhere", "本斯·弗利高夫", "Bence Fliegauf", "最佳配角银熊奖（Lilla Kizlinger）", "Silver Bear for Best Supporting Performance"),
+    (2021, "引见", "Introduction", "洪常秀", "Hong Sangsoo", "最佳编剧银熊奖（Hong Sangsoo）", "Silver Bear for Best Screenplay"),
+    (2021, "一部警察电影", "A Cop Movie", "阿隆索·帕拉西奥斯", "Alonso Ruizpalacios", "杰出艺术贡献银熊奖（剪辑：Yibrán Asuad）", "Silver Bear for Outstanding Artistic Contribution"),
 ]
 
 def apply(path):

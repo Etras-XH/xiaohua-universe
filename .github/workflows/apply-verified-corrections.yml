@@ -5,6 +5,7 @@ on:
     paths:
       - 'scripts/apply_verified_corrections.py'
       - 'scripts/add_verified_awards.py'
+      - 'scripts/add_verified_awards_2012.py'
       - 'scripts/dedupe_verified_aliases.py'
       - '.github/workflows/apply-verified-corrections.yml'
   workflow_dispatch:
@@ -22,6 +23,7 @@ jobs:
           python-version: '3.12'
       - run: python scripts/apply_verified_corrections.py
       - run: python scripts/add_verified_awards.py
+      - run: python scripts/add_verified_awards_2012.py
       - run: python scripts/dedupe_verified_aliases.py
       - name: Commit normalized records
         run: |

@@ -48,6 +48,11 @@ BATCHES = [
         ("闭幕", "Closed Curtain", "贾法·帕纳西 / 坎布兹亚·帕托维", "Jafar Panahi / Kamboziya Partovi", "最佳编剧银熊奖（Jafar Panahi）", "Silver Bear for Best Script"),
         ("和谐课程", "Harmony Lessons", "埃米尔·拜加津", "Emir Baigazin", "杰出艺术贡献银熊奖（摄影：Aziz Zhambakiyev）", "Silver Bear for Outstanding Artistic Contribution"),
     ]),
+    (2011, "https://www.berlinale.de/media/download/preise-jurys/61_ifb_awards_2011.pdf", [
+        ("一次别离", "A Separation", "阿斯哈·法哈蒂", "Asghar Farhadi", "最佳女演员银熊奖（女演员群像）", "Silver Bear for Best Actress"),
+        ("一次别离", "A Separation", "阿斯哈·法哈蒂", "Asghar Farhadi", "最佳男演员银熊奖（男演员群像）", "Silver Bear for Best Actor"),
+        ("如果我们生活在一起", "If Not Us, Who", "安德烈斯·凡伊尔", "Andres Veiel", "阿尔弗雷德·鲍尔奖", "Alfred Bauer Prize"),
+    ]),
 ]
 
 def apply(path):

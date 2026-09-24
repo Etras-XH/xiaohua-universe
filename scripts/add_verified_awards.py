@@ -38,6 +38,16 @@ BATCHES = [
         ("苦路十四站", "Stations of the Cross", "迪特里希·布鲁格曼", "Dietrich Brüggemann", "最佳编剧银熊奖（Dietrich Brüggemann、Anna Brüggemann）", "Silver Bear for Best Script"),
         ("推拿", "Blind Massage", "娄烨", "Lou Ye", "杰出艺术贡献银熊奖（摄影：曾剑）", "Silver Bear for Outstanding Artistic Contribution"),
     ]),
+    (2013, "https://www.berlinale.de/media/download/preise-jurys/63_berlinale_awards.pdf", [
+        ("孩童姿势", "Child's Pose", "卡林·皮特·内策尔", "Călin Peter Netzer", "金熊奖", "Golden Bear"),
+        ("渺生一页", "An Episode in the Life of an Iron Picker", "丹尼斯·塔诺维奇", "Danis Tanović", "评审团大奖银熊奖", "Jury Grand Prix (Silver Bear)"),
+        ("维克多和弗洛伦斯看见一只熊", "Vic+Flo Saw a Bear", "丹尼斯·科泰", "Denis Côté", "阿尔弗雷德·鲍尔银熊奖", "Alfred Bauer Prize (Silver Bear)"),
+        ("雪崩王子", "Prince Avalanche", "大卫·戈登·格林", "David Gordon Green", "最佳导演银熊奖", "Silver Bear for Best Director"),
+        ("葛洛莉亚", "Gloria", "塞巴斯蒂安·莱里奥", "Sebastián Lelio", "最佳女演员银熊奖（Paulina García）", "Silver Bear for Best Actress"),
+        ("渺生一页", "An Episode in the Life of an Iron Picker", "丹尼斯·塔诺维奇", "Danis Tanović", "最佳男演员银熊奖（Nazif Mujić）", "Silver Bear for Best Actor"),
+        ("闭幕", "Closed Curtain", "贾法·帕纳西 / 坎布兹亚·帕托维", "Jafar Panahi / Kamboziya Partovi", "最佳编剧银熊奖（Jafar Panahi）", "Silver Bear for Best Script"),
+        ("和谐课程", "Harmony Lessons", "埃米尔·拜加津", "Emir Baigazin", "杰出艺术贡献银熊奖（摄影：Aziz Zhambakiyev）", "Silver Bear for Outstanding Artistic Contribution"),
+    ]),
 ]
 
 def apply(path):
